@@ -36,7 +36,7 @@ public class WuziqiPanel extends View{
 	
 	public WuziqiPanel(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		setBackgroundColor(0x44ff0000);
+//		setBackgroundColor(0x44ff0000);
 		init();
 	}
 	
@@ -49,7 +49,6 @@ public class WuziqiPanel extends View{
 		
 		mWhitePiece = BitmapFactory.decodeResource(getResources(), R.drawable.stone_w2);
 		mBlackPiece = BitmapFactory.decodeResource(getResources(), R.drawable.stone_b1);
-		
 	}
 
 
@@ -87,6 +86,7 @@ public class WuziqiPanel extends View{
 	
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
+		if (mIsGameOver) return false;
 		
 		int action = event.getAction();
 		if (action == MotionEvent.ACTION_UP) {
@@ -298,4 +298,11 @@ public class WuziqiPanel extends View{
 		super.onRestoreInstanceState(state);
 	}
 
+	public void start(){
+		mWhiteArray.clear();
+		mBlackArray.clear();
+		mIsGameOver = false;
+		mIsWhiteWinner = false;
+		invalidate();
+	}
 }
