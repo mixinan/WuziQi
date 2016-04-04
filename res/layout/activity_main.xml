@@ -10,10 +10,9 @@
     tools:context=".MainActivity" >
 
     <cc.guoxingnan.wuziqi.WuziqiPanel
+        android:id="@+id/customView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        
-        />
+        android:layout_centerInParent="true"/>
 
 </RelativeLayout>
