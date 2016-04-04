@@ -83,7 +83,7 @@ public class WuziqiPanel extends View{
 	public boolean onTouchEvent(MotionEvent event) {
 		
 		int action = event.getAction();
-		if (action == MotionEvent.ACTION_DOWN) {
+		if (action == MotionEvent.ACTION_UP) {
 			int x = (int) event.getX();
 			int y = (int) event.getY();
 
@@ -100,10 +100,9 @@ public class WuziqiPanel extends View{
 			}
 			invalidate();
 			mIsWhite = !mIsWhite;
-			return true;
 		}
 		
-		return super.onTouchEvent(event);
+		return true;
 	}
 	
 	
@@ -116,6 +115,26 @@ public class WuziqiPanel extends View{
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		drawBoard(canvas);
+		
+		drawPieces(canvas);
+	}
+
+
+	private void drawPieces(Canvas canvas) {
+		for (int i = 0, n = mWhiteArray.size(); i < n; i++) {
+			Point whitePoint = mWhiteArray.get(i);
+			canvas.drawBitmap(mWhitePiece, 
+					(whitePoint.x + (1-ratioPieceOfLineHeight)/2)*mLineHeight, 
+					(whitePoint.y + (1-ratioPieceOfLineHeight)/2)*mLineHeight, 
+					null);
+		}
+		for (int i = 0, n = mBlackArray.size(); i < n; i++) {
+			Point blackPoint = mBlackArray.get(i);
+			canvas.drawBitmap(mBlackPiece, 
+					(blackPoint.x + (1-ratioPieceOfLineHeight)/2)*mLineHeight, 
+					(blackPoint.y + (1-ratioPieceOfLineHeight)/2)*mLineHeight, 
+					null);
+		}
 	}
 
 
