@@ -112,7 +112,7 @@ public class WuziqiPanel extends View{
 		// 行距=棋盘宽度÷行数
 		mLineHeight = mPanelWidth *1.0f / MAX_LINE;            
 		// 棋子的宽度=行距×比例
-		int pieceWidth = (int) (mLineHeight*ratioPieceOfLineHeight);
+		int pieceWidth = (int) (mLineHeight * ratioPieceOfLineHeight);
 		// 按比例重新设置棋子的尺寸
 		mWhitePiece = Bitmap.createScaledBitmap(mWhitePiece,pieceWidth,pieceWidth,false);
 		mBlackPiece = Bitmap.createScaledBitmap(mBlackPiece,pieceWidth,pieceWidth,false);
